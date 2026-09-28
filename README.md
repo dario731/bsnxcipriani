@@ -56,16 +56,15 @@ the top of the `<script>` in `index.html`:
 | --- | --- |
 | `name`, `shortName` | cover, the integrated ecosystem, "Integrated", "Already committed", next step. `shortName` (≤ 16 characters) is used inside the circles |
 | `developer`, `location` | cover, "Already committed" |
-| `partner`, `partnerLogo` | optional sales & marketing partner (ISG World now): its mark beside the project mark on the cover, its name beside the developer |
+| `partner`, `partnerLogo` | optional sales & marketing partner (none now): its mark beside the project mark on the cover, its name beside the developer |
 | `logo` | the project mark on "Next step" (a dark mark on a transparent SVG or PNG; it is inverted to white) |
 | `currency`, `partnership`, `match` | the two amounts on "Skin in the game" (default `100` and `100`, an illustrative unit; the counters animate to whatever you set) |
 | `event` | optional invitation line on "Next step" |
 | `images`, `priceRange`, `valueProposition`, `whySelected`, `commissionPct`, `exampleUnitPrice`, `contact` | reserved for optional screens not in the current sequence |
 
-The current values are set for Kempinski Residences Miami Design District (DaGrosa Capital
-Development Partners). The renderings behind "Already committed" and "Next step" are
-`kempinskiTowers` and `kempinskiDusk` in `ASSETS`; the source files stay in the
-`Kempinski Residences Miami Design District/` folder.
+The current values are set for EDITION Residences Miami Edgewater (Two Roads Development).
+The rendering behind "Already committed" and "Next step" is `editionEdgewater` in `ASSETS`;
+the project mark is `assets/logos/edition-residences.png`.
 
 Two ways to switch developer without editing the deck:
 
@@ -104,6 +103,6 @@ opens a specific step.
 
 The repository deploys to Netlify straight from GitHub `main` (see `netlify.toml`: no build step,
 the root is the site). Push to `main` and Netlify publishes; the `preview` branch is for work in
-progress. The Kempinski source folder is git-ignored; the deck reads its copies in `assets/`.
+progress. 
 
-Share previews: the `<title>` and the Open Graph tags in the `<head>` name the deck "B&S Luxury × Kempinski Residences" and point WhatsApp / iMessage at `assets/photos/share.jpg` (1200×630). The `og:image` URL is absolute and currently assumes `https://bsnxkempinski.netlify.app`; change it to the final domain once Netlify assigns one.
+Share previews: the `<title>` and the Open Graph tags in the `<head>` name the deck "B&S Luxury × EDITION Residences" and point WhatsApp / iMessage at `assets/photos/share.jpg` (1200×630). The `og:image` URL is absolute and currently assumes `https://bsnxedition.netlify.app`; change it to the final domain once Netlify assigns one.
