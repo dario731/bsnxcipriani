@@ -105,4 +105,4 @@ The repository deploys to Netlify straight from GitHub `main` (see `netlify.toml
 the root is the site). Push to `main` and Netlify publishes; the `preview` branch is for work in
 progress. 
 
-Share previews: the `<title>` and the Open Graph tags in the `<head>` name the deck "B&S Luxury × EDITION Residences" and point WhatsApp / iMessage at `assets/photos/share.jpg` (1200×630). The `og:image` URL is absolute and currently assumes `https://bsnxedition.netlify.app`; change it to the final domain once Netlify assigns one.
+Share previews: the `<title>` and the Open Graph tags in the `<head>` name the deck "B&S Luxury × EDITION Residences" and point WhatsApp / iMessage at `assets/photos/share.jpg` (1200×630). The `og:image` URL is absolute and currently assumes `https://bnsxedition.netlify.app`; change it to the final domain once Netlify assigns one.
