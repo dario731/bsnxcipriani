@@ -1551,6 +1551,51 @@ body.theme-light .chrome__arrow { border-color: rgba(14,13,11,.3); background: r
 .lg__ck { position: relative; padding-left: 20px; }
 .lg__ck::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--accent); font-size: 12px; }
 @media (max-width: 600px) { .done__flags { flex-direction: column; gap: 8px; } }
+/* ── Two engines: headline on top, two engines joined by B&S Luxury ───────── */
+.eng2 { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: clamp(20px, 3vw, 56px); margin-top: clamp(30px, 6vh, 72px); position: relative; }
+.eng2::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--champagne); opacity: .35; }
+.eng2__c { position: relative; border: 1px solid var(--line); background: var(--bg); padding: clamp(18px, 3vh, 36px) clamp(18px, 2vw, 36px); display: grid; align-content: start; gap: clamp(6px, 1vh, 12px); }
+.eng2__k { color: var(--accent); }
+.eng2__c .display--sm { font-size: clamp(26px, 2.8vw, 50px); line-height: 1.02; }
+.eng2__list { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: clamp(8px, 1.6vh, 18px); }
+.eng2__list span { font-size: clamp(10px, .8vw, 13px); letter-spacing: .24em; text-transform: uppercase; color: var(--fg-mute); }
+.eng2__list span.hi { color: var(--fg); }
+.eng2__core { position: relative; align-self: center; width: clamp(130px, 12vw, 200px); aspect-ratio: 1; border-radius: 50%; border: 1px solid var(--champagne); background: var(--onyx); display: grid; place-content: center; text-align: center; gap: 6px; }
+.eng2__core span { font-family: var(--serif); font-size: clamp(13px, 1.1vw, 18px); letter-spacing: .22em; text-transform: uppercase; }
+.eng2__core small { font-size: 8px; letter-spacing: .44em; text-transform: uppercase; color: var(--fg-mute); }
+@media (max-width: 900px) {
+  .eng2 { grid-template-columns: 1fr; gap: 0; margin-top: 22px; }
+  .eng2::before { left: 50%; right: auto; top: 0; bottom: 0; width: 1px; height: auto; }
+  .eng2__core { width: 92px; margin: 12px auto; }
+  .eng2__core span { font-size: 11px; letter-spacing: .16em; }
+  .eng2__core small { font-size: 7px; }
+}
+@media (max-width: 600px) {
+  .eng2__c { padding: 14px 16px 16px; gap: 4px; }
+  .eng2__c .lg__n { display: none; }
+  .eng2__c .display--sm { font-size: 22px; }
+  .eng2__list { gap: 6px 16px; margin-top: 6px; }
+  .eng2__list span { font-size: 10px; letter-spacing: .18em; }
+  .eng2__core { width: 78px; margin: 10px auto; }
+}
+
+/* ── Lead generation on a phone: number beside the title, the tech in two columns ── */
+@media (max-width: 600px) {
+  .slide[data-title="Digital lead generation"] h2.display--md { font-size: 24px; }
+  .lg { gap: 18px; margin-top: 16px; }
+  .lg__col { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: baseline; }
+  .lg__col .lg__n { font-size: 30px; margin: 0; grid-row: span 2; }
+  .lg__col .display--sm { font-size: 22px; }
+  .lg__sub { margin-top: 2px; font-size: 9.5px; }
+  .lg__col .lg__box { grid-column: 1 / -1; padding: 10px 12px; margin-top: 10px !important; gap: 6px; }
+  .lg__col .lg__box.list--2 { display: grid; grid-template-columns: 1fr 1fr; column-gap: 10px; }
+  .lg__col .lg__box span { font-size: 9.5px; letter-spacing: .12em; line-height: 1.4; }
+  .lg__ck { padding-left: 16px; }
+  .lg__ck::before { font-size: 10px; }
+  .lg__foot { margin-top: 16px; padding-top: 12px; }
+  .lg__foot .display--sm { font-size: 17px; }
+}
+
 </style>
 </head>
 <body>
@@ -2007,49 +2052,25 @@ body.theme-light .chrome__arrow { border-color: rgba(14,13,11,.3); background: r
   <!-- ══ 07 · TWO ENGINES ═════════════════════════════════════════════════ -->
   <section class="slide" data-section="3" data-name="The Engines" data-title="Two engines">
     <div class="slide__inner">
-      <div class="engines">
-        <div class="engine engine--l">
-          <p class="eyebrow r">01 · Offline engine</p>
-          <p class="display display--sm r">The luxury <br>ecosystem</p>
-          <div class="list">
-            <span class="r">Relationships</span>
-            <span class="r">Access</span>
-            <span class="r">Business development</span>
-            <span class="r hi">Distribution</span>
-          </div>
+      <p class="eyebrow r">The engines · how we grow</p>
+      <h2 class="display display--md r" style="--d:.2s">Two engines. <br><span class="accent">One growth system.</span></h2>
+      <!-- two engines feed one system: the offline luxury ecosystem and the in-house
+           online acquisition, joined by B&S Luxury. Three columns on a wide screen,
+           stacked on a phone. -->
+      <div class="eng2">
+        <div class="eng2__c r" style="--d:.5s">
+          <div class="lg__n">01</div>
+          <p class="caps eng2__k">Offline engine</p>
+          <p class="display display--sm">The luxury ecosystem</p>
+          <div class="eng2__list"><span>Relationships</span><span>Access</span><span>Business development</span><span class="hi">Distribution</span></div>
         </div>
-        <div class="engine__core">
-          <svg viewBox="0 0 320 420" aria-hidden="true">
-            <g>
-              <path class="conv draw" data-step="1" pathLength="1" d="M0 60 C 90 60, 110 210, 160 210" style="--d:.5s"/>
-              <path class="conv draw" data-step="1" pathLength="1" d="M0 135 C 90 135, 110 210, 160 210" style="--d:.6s"/>
-              <path class="conv draw" data-step="1" pathLength="1" d="M0 210 L 160 210" style="--d:.7s"/>
-              <path class="conv draw" data-step="1" pathLength="1" d="M0 285 C 90 285, 110 210, 160 210" style="--d:.8s"/>
-              <path class="conv draw" data-step="1" pathLength="1" d="M0 360 C 90 360, 110 210, 160 210" style="--d:.9s"/>
-              <path class="conv draw" data-step="1" pathLength="1" d="M320 60 C 230 60, 210 210, 160 210" style="--d:.5s"/>
-              <path class="conv draw" data-step="1" pathLength="1" d="M320 135 C 230 135, 210 210, 160 210" style="--d:.6s"/>
-              <path class="conv draw" data-step="1" pathLength="1" d="M320 210 L 160 210" style="--d:.7s"/>
-              <path class="conv draw" data-step="1" pathLength="1" d="M320 285 C 230 285, 210 210, 160 210" style="--d:.8s"/>
-              <path class="conv draw" data-step="1" pathLength="1" d="M320 360 C 230 360, 210 210, 160 210" style="--d:.9s"/>
-            </g>
-            <circle class="core draw" data-step="1" pathLength="1" cx="160" cy="210" r="78" style="--d:1.2s"/>
-            <text class="r fade" data-step="1" x="160" y="208" text-anchor="middle" style="--d:1.6s">B&amp;S LUXURY</text>
-            <text class="tag r fade" data-step="1" x="160" y="228" text-anchor="middle" style="--d:1.8s">MIAMI</text>
-          </svg>
+        <div class="eng2__core r" style="--d:.9s"><span>B&amp;S Luxury</span><small>Miami</small></div>
+        <div class="eng2__c r" style="--d:.7s">
+          <div class="lg__n">02</div>
+          <p class="caps eng2__k">Online engine</p>
+          <p class="display display--sm">In-house digital acquisition</p>
+          <div class="eng2__list"><span>Technology</span><span>Demand generation</span><span>Data</span><span class="hi">Conversion</span></div>
         </div>
-        <div class="engine">
-          <p class="eyebrow r">02 · Online engine</p>
-          <p class="display display--sm r">In-house digital <br>acquisition</p>
-          <div class="list">
-            <span class="r">Technology</span>
-            <span class="r">Demand generation</span>
-            <span class="r">Data</span>
-            <span class="r hi">Conversion</span>
-          </div>
-        </div>
-      </div>
-      <div class="engine__label" data-step="1" style="--d:2s">
-        <p class="display display--sm">Two engines. <br><span class="accent">One growth system.</span></p>
       </div>
     </div>
   </section>
@@ -2265,7 +2286,7 @@ body.theme-light .chrome__arrow { border-color: rgba(14,13,11,.3); background: r
           <span class="mech__amt"><b data-amount="currency">$</b><span data-amount="bns">100</span></span>
           <span class="mech__t">We match it</span>
           <span class="mech__who">Our own capital</span>
-          <span class="mech__c">All in pure media: Google Ads, Meta. <em>To the platforms, not to us.</em></span>
+          <span class="mech__c">All in pure media, directly to the Google Ads and Meta platforms, <em>not to us.</em></span>
         </li>
         <li class="mech__st mech__st--gold" data-step="3" style="--d:0s">
           <i class="mech__n">03 · Then</i>
