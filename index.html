@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="theme-color" content="#0B0A09">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -53,7 +53,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html, body { height: 100%; margin: 0; overscroll-behavior: none; }
+html, body { height: 100%; margin: 0; overscroll-behavior: none; overflow-x: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body {
   background: var(--onyx);
   color: var(--ivory);
@@ -1643,6 +1643,21 @@ body.theme-light .chrome__arrow { border-color: rgba(14,13,11,.3); background: r
   .bz__lede p + p::before { content: " "; }
 }
 
+/* ── Phone: no zoom, no shake. The page cannot be pinched or double-tap zoomed,
+      slides and photos do not scale, reveals fade with only a small lift. ── */
+@media (max-width: 900px) {
+  html, body, .deck, .slide { touch-action: pan-y; }
+  button, a { touch-action: manipulation; }
+  .slide, .slide.is-active, .slide.is-leaving { transform: none !important; }
+  .media__img { animation: none !important; transform: none !important; inset: 0; }
+  .r.scale { transform: none; }
+  .r, [data-step]:where(:not(.ln):not(.draw)) { transform: translate3d(0, 10px, 0); }
+  .r.in, [data-step].in, .r.fade, [data-step].fade { transform: none; }
+  .flowc .halo { animation: none; opacity: 0; }
+  @keyframes pulse { 0%, 100% { opacity: .5; } 50% { opacity: .15; } }
+  @keyframes arrowflash { 0%, 100% { opacity: .8; box-shadow: 0 0 0 0 rgba(194,168,120,0); } 50% { opacity: 1; box-shadow: 0 0 0 7px rgba(194,168,120,.28); } }
+}
+
 </style>
 </head>
 <body>
@@ -2712,6 +2727,10 @@ const SECTIONS = ['Opening', 'Who We Are', 'The Market', 'The Engines', 'The Par
     wheelLock = now;
     e.deltaY > 0 ? next() : prev();
   }, { passive: true });
+
+  // phones: no pinch or double-tap zoom (iOS ignores user-scalable=no)
+  ["gesturestart", "gesturechange", "gestureend"].forEach(t => document.addEventListener(t, e => e.preventDefault(), { passive: false }));
+  document.addEventListener("touchmove", e => { if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
 
   // touch swipe
   let tx = 0, ty = 0;
