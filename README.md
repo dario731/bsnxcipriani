@@ -39,7 +39,7 @@ auto-advances (on a phone, steps play by themselves).
 | 01 | Who we are | Biz & Style · The ecosystem · Our objective · On the map (The Real Deal, a statement of intent; investing ahead of the business in the team and in the digital infrastructure) · Growing progressively, selecting the top (the agent ring) |
 | 02 | The market · the gap | One screen: 170+ new developments and 60,000+ realtors in Miami alone, then: everyone promotes everything · the influencer approach · we don't follow it · we select what we believe in · a limited number of projects, a deeper commitment · when we believe, we go all in |
 | 03 | The engines | Two engines · Digital lead generation (01 the tech, built in-house · 02 the people, converted in-house, with the developers named: PMG, Terra, Continuum) · International reach (the Biz & Style world map: dotted coastlines, routes from Miami to Los Angeles, Toronto, New York, Mexico City, Santo Domingo, Panama, Bogotá, Lima, São Paulo, London, Paris, Milan, Madrid, Dubai, Singapore) · One integrated ecosystem (luxury ecosystem, lead generation, broker community, international reach around the project) |
-| 04 | The partnership | Already committed (the project's own rendering: three tiles — website built, campaigns running, resources committed — then "It's already happening. How fast can we go together?") · Skin in the game — a flow: You $100 opens the partnership (the ecosystem, a sales team, international exposure, lead generation and its management); Us $100 goes to pure media (Google Ads, Meta, to the platforms not to us); both meet in the development and end in sales; a gold return path brings your $100 back at the first commission. Phones show the same five stations as a list |
+| 04 | The partnership | Already committed (the project's own rendering: three tiles — website built, campaigns running, resources committed — then "It's already happening. How fast can we go together?") · How it works — three steps: 01 how to start, a temporary advance of the amount you select, which activates the full infrastructure; 02 for your peace of mind, we match it with our own capital in pure media (Google Ads, Meta, to the platforms not to us); 03 you recover it from the sales, at the first commission. Three columns on a wide screen, a vertical timeline on a phone |
 | 05 | Next step | "We already committed." then B&S LUXURY × the project mark and "Let's accelerate. Together." on the project's rendering |
 
 The money appears only in chapter 05, after the value has been established. The two
@@ -58,7 +58,7 @@ the top of the `<script>` in `index.html`:
 | `developer`, `location` | cover, "Already committed" |
 | `partner`, `partnerLogo` | optional sales & marketing partner (none now): its mark beside the project mark on the cover, its name beside the developer |
 | `logo` | the project mark on "Next step" (a dark mark on a transparent SVG or PNG; it is inverted to white) |
-| `currency`, `partnership`, `match` | the two amounts on "Skin in the game" (default `100` and `100`, an illustrative unit; the counters animate to whatever you set) |
+| `currency`, `partnership`, `match` | the amounts on "How it works" (default `100` and `100`, an illustrative unit; the counters animate to whatever you set) |
 | `event` | optional invitation line on "Next step" |
 | `images`, `priceRange`, `valueProposition`, `whySelected`, `commissionPct`, `exampleUnitPrice`, `contact` | reserved for optional screens not in the current sequence |
 

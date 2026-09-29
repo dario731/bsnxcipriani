@@ -1477,21 +1477,51 @@ body.theme-light .chrome__arrow { border-color: rgba(14,13,11,.3); background: r
 .flowc .rider-glow { fill: var(--champagne); opacity: .7; }
 .flowc__close { position: absolute; left: var(--pad); right: var(--pad); bottom: clamp(64px, 9vh, 96px); text-align: center; }
 .flowc .math__note { bottom: clamp(24px, 3.6vh, 40px); }
-.skin__list { display: none; }
+/* the mechanic: phone first, a vertical timeline; three columns from 900px */
+.mech { list-style: none; margin: 0; padding: 0 0 0 26px; position: relative; display: grid; gap: 0; }
+.mech::before { content: ""; position: absolute; left: 5px; top: 10px; bottom: 10px; width: 1px; background: var(--champagne); opacity: .6; }
+.mech__st { position: relative; display: grid; gap: 6px; padding: 16px 0 20px; border-top: 1px solid var(--line); }
+.mech__st:last-child { border-bottom: 1px solid var(--line); }
+.mech__st::before { content: ""; position: absolute; left: -26px; top: 22px; width: 11px; height: 11px; border-radius: 50%; background: var(--onyx); border: 1px solid var(--champagne); }
+.mech__st--gold::before { background: var(--champagne); }
+.mech__n { font-style: normal; font-size: 10px; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); }
+.mech__amt { font-family: var(--serif); font-size: 44px; line-height: 1; letter-spacing: .02em; }
+.mech__amt b { font-weight: 400; font-size: .5em; color: var(--accent); vertical-align: .7em; margin-right: 2px; }
+.mech__t { font-family: var(--serif); font-size: 24px; letter-spacing: .1em; text-transform: uppercase; line-height: 1.1; }
+.mech__st--gold .mech__t { color: var(--accent); }
+.mech__who { font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase; color: var(--fg); }
+.mech__c { font-size: 14px; line-height: 1.55; color: var(--fg-mute); max-width: 34em; }
+.mech__c em { font-style: normal; color: var(--accent); }
+@media (min-width: 901px) {
+  .mech { position: absolute; left: var(--pad); right: var(--pad); top: 50%; transform: translateY(-44%); padding: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 3.6vw, 72px); }
+  .mech::before { left: 0; right: 0; top: 5px; bottom: auto; width: auto; height: 1px; }
+  .mech { grid-template-rows: repeat(5, auto); row-gap: 0; }
+  .mech__st, .mech__st:last-child { border: 0; padding: clamp(34px, 5vh, 56px) 0 0; grid-row: span 5; grid-template-rows: subgrid; row-gap: clamp(8px, 1.4vh, 14px); align-items: end; }
+  .mech__c { align-self: start; }
+  .mech__st::before { left: 0; top: 0; }
+  .mech__n { font-size: clamp(10px, .75vw, 12.5px); }
+  .mech__amt { font-size: clamp(56px, 5.6vw, 104px); }
+  .mech__t { font-size: clamp(24px, 2.2vw, 40px); }
+  .mech__who { font-size: clamp(10px, .75vw, 12.5px); }
+  .mech__c { font-size: clamp(13px, 1vw, 17px); }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .flowc { position: relative; inset: auto; min-height: 100%; padding: 110px var(--pad) 160px; }
+  .flowc__head { position: static; margin-bottom: 26px; }
+  .flowc__close { position: static; margin-top: 26px; }
+  .flowc .math__note { position: static; margin-top: 18px; }
+}
 @media (max-width: 600px) {
   .flowc { position: relative; inset: auto; min-height: 100%; padding: 84px 20px 150px; }
+  .mech__st { grid-template-columns: auto 1fr; column-gap: 14px; row-gap: 3px; padding: 12px 0 14px; }
+  .mech__st::before { top: 18px; }
+  .mech__n { grid-column: 1 / -1; margin-bottom: 4px; }
+  .mech__amt { grid-row: 2 / span 3; font-size: 36px; }
+  .mech__t { font-size: 19px; }
+  .mech__who { font-size: 9.5px; }
+  .mech__c { grid-column: 1 / -1; font-size: 13px; line-height: 1.45; margin-top: 4px; }
+  .flowc__head .display--sm { font-size: 22px; }
   .flowc__head { position: static; text-align: left; margin-bottom: 18px; }
-  .flowc__fig { display: none; }
-  .skin__list { display: grid; gap: 1px; background: var(--line); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .skin__row { background: var(--bg); display: grid; grid-template-columns: auto 1fr; gap: 14px; padding: 14px 0; }
-  .skin__row i { font-style: normal; font-size: 9.5px; letter-spacing: .3em; color: var(--accent); padding-top: 6px; }
-  .skin__row > div { display: grid; gap: 4px; }
-  .skin__t { font-family: var(--serif); font-size: 20px; letter-spacing: .1em; text-transform: uppercase; }
-  .skin__t b { font-weight: 400; }
-  .skin__t b[data-amount="currency"] { color: var(--accent); font-size: .7em; vertical-align: .3em; }
-  .skin__t.accent { color: var(--accent); }
-  .skin__c { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--fg-mute); line-height: 1.6; }
-  .skin__c b { font-weight: 500; color: var(--fg); }
   .flowc__close { position: static; text-align: left; margin-top: 22px; }
   .flowc .math__note { position: static; margin-top: 18px; }
 }
@@ -1512,15 +1542,6 @@ body.theme-light .chrome__arrow { border-color: rgba(14,13,11,.3); background: r
   .done__tiles { grid-template-columns: 1fr; }
   .done__t { padding: 12px 14px; }
   .lg__col .display--sm { font-size: 26px; }
-  .skin__list { position: relative; padding-left: 22px; border-top: 0; border-bottom: 0; background: none; gap: 0; }
-  .skin__list::before { content: ''; position: absolute; left: 4px; top: 8px; bottom: 8px; width: 1px; background: var(--champagne); opacity: .7; }
-  .skin__row { position: relative; border-top: 1px solid var(--line); padding: 14px 0 16px; }
-  .skin__row::before { content: ''; position: absolute; left: -22px; top: 22px; width: 9px; height: 9px; border-radius: 50%; background: var(--onyx); border: 1px solid var(--champagne); }
-  .skin__row:last-child { border-bottom: 1px solid var(--line); }
-  .skin__row:last-child::before { background: var(--champagne); }
-  .skin__t { font-size: 22px; }
-  .skin__t b { font-size: 26px; }
-  .skin__c { font-size: 10.5px; }
 }
 
 /* ── Round 10 · flags, checkpoints ────────────────────────────────────────── */
@@ -2224,82 +2245,38 @@ body.theme-light .chrome__arrow { border-color: rgba(14,13,11,.3); background: r
   <section class="slide" data-section="4" data-name="The Partnership" data-title="Skin in the game" data-auto="1400">
     <div class="flowc">
       <div class="flowc__head">
-        <p class="eyebrow r">Shared commitment · how it works</p>
-        <p class="display display--sm eco__title r" style="--d:.2s">Skin in the game. <span class="accent">On both sides.</span></p>
-        <p class="caps flowc__ex r" style="--d:.5s">The <b data-amount="currency">$</b><b data-amount="developer">100</b> is an example of the mechanic · the same logic applies to any amount</p>
+        <p class="eyebrow r">The partnership · how it works</p>
+        <p class="display display--sm eco__title r" style="--d:.2s">Three steps. <span class="accent">Skin in the game on both sides.</span></p>
+        <p class="caps flowc__ex r" style="--d:.5s">The <b data-amount="currency">$</b><b data-amount="developer">100</b> is an example · the same logic applies to any amount</p>
       </div>
-      <div class="flowc__fig">
-        <!-- two commitments enter the project: yours opens the partnership, ours goes
-             to pure media. Both meet in the development and end in sales; at the first
-             commission your advance comes back along the gold return path. -->
-        <svg viewBox="0 0 1600 720" aria-hidden="true">
-          <defs><filter id="flowcblur" x="-300%" y="-300%" width="700%" height="700%"><feGaussianBlur stdDeviation="7"/></filter></defs>
+      <!-- the mechanic in three steps: you start with an advance, we match it in
+           pure media, you recover it from the sales. A timeline on phones, three
+           columns on wider screens. -->
+      <ol class="mech">
+        <li class="mech__st" data-step="1" style="--d:0s">
+          <i class="mech__n">01 · How to start</i>
+          <span class="mech__amt"><b data-amount="currency">$</b><span data-amount="developer">100</span></span>
+          <span class="mech__t">A temporary advance</span>
+          <span class="mech__who">The amount you select</span>
+          <span class="mech__c">It activates the full infrastructure: the ecosystem, a sales team on your project, international exposure, lead generation and its management.</span>
+        </li>
+        <li class="mech__st" data-step="2" style="--d:0s">
+          <i class="mech__n">02 · For your peace of mind</i>
+          <span class="mech__amt"><b data-amount="currency">$</b><span data-amount="bns">100</span></span>
+          <span class="mech__t">We match it</span>
+          <span class="mech__who">Our own capital</span>
+          <span class="mech__c">All in pure media: Google Ads, Meta. <em>To the platforms, not to us.</em></span>
+        </li>
+        <li class="mech__st mech__st--gold" data-step="3" style="--d:0s">
+          <i class="mech__n">03 · Then</i>
+          <span class="mech__amt"><b data-amount="currency">$</b><span data-amount="developer">100</span></span>
+          <span class="mech__t">You recover it</span>
+          <span class="mech__who">From the sales</span>
+          <span class="mech__c">Your advance comes back at the first commission.</span>
+        </li>
+      </ol>
 
-          <!-- you -->
-          <g class="fade" data-step="1" style="--d:0s">
-            <text x="60" y="176">You</text>
-            <text class="amt" x="60" y="250"><tspan class="cur">$</tspan><tspan data-amount-count="developer">0</tspan></text>
-            <text class="t" x="60" y="292">Your commitment</text>
-            <text x="60" y="322">A temporary advance</text>
-          </g>
-          <path class="wire draw" data-step="1" pathLength="1" d="M330 240 H470" style="--d:.5s"/>
-          <g class="fade" data-step="1" style="--d:1s">
-            <circle class="node" cx="480" cy="240" r="4"/>
-            <text class="t" x="500" y="204">The partnership</text>
-            <text x="500" y="236">The ecosystem</text>
-            <text x="500" y="260">A sales team pushing your project</text>
-            <text x="500" y="284">International exposure</text>
-            <text class="hi" x="500" y="308">Lead generation and its management</text>
-          </g>
-
-          <!-- us -->
-          <g class="fade" data-step="2" style="--d:0s">
-            <text x="60" y="476">Us</text>
-            <text class="amt" x="60" y="550"><tspan class="cur">$</tspan><tspan data-amount-count="bns">0</tspan></text>
-            <text class="t" x="60" y="592">Our match</text>
-            <text x="60" y="622">Our own capital</text>
-          </g>
-          <path class="wire draw" data-step="2" pathLength="1" d="M330 540 H470" style="--d:.5s"/>
-          <g class="fade" data-step="2" style="--d:1s">
-            <circle class="node" cx="480" cy="540" r="4"/>
-            <text class="t" x="500" y="528">Pure media</text>
-            <text x="500" y="560">Google Ads · Meta</text>
-            <text class="hi" x="500" y="584">To the platforms, not to us</text>
-          </g>
-
-          <!-- both meet in the development -->
-          <path class="wire wire--gold draw" data-step="3" pathLength="1" d="M900 240 C 980 240, 990 330, 1052 356" style="--d:0s"/>
-          <path class="wire wire--gold draw" data-step="3" pathLength="1" d="M900 540 C 980 540, 990 450, 1052 424" style="--d:.15s"/>
-          <circle class="halo" cx="1140" cy="390" r="92" style="transform-origin:1140px 390px"/>
-          <circle class="core draw" data-step="3" pathLength="1" cx="1140" cy="390" r="92" style="--d:.4s"/>
-          <text class="pj fade" data-step="3" x="1140" y="386" text-anchor="middle" data-project-short style="--d:.8s">[PROJECT NAME]</text>
-          <text class="tag fade" data-step="3" x="1140" y="414" text-anchor="middle" style="--d:1s">SELECTED DEVELOPMENT</text>
-          <path class="wire wire--gold draw" data-step="3" pathLength="1" d="M1232 390 H1370" style="--d:1.1s"/>
-          <g class="fade" data-step="3" style="--d:1.5s">
-            <circle class="node node--gold" cx="1380" cy="390" r="5"/>
-            <text x="1400" y="368">The goal</text>
-            <text class="big" x="1400" y="412">Sales</text>
-          </g>
-          <g class="fade" data-step="3" style="--d:1.8s"><g><animateMotion dur="6s" repeatCount="indefinite" path="M330 540 H470 H900 C 980 540, 990 450, 1052 424 L1232 390 H1370"/><circle class="rider-glow" r="11" filter="url(#flowcblur)"/><circle class="rider" r="3.5"/></g></g>
-
-          <!-- the return -->
-          <path class="ret draw" data-step="4" pathLength="1" d="M1380 372 C 1380 40, 200 40, 200 150" style="--d:0s"/>
-          <path class="arr fade" data-step="4" d="M190 138 L200 152 L210 138" style="--d:1.6s"/>
-          <text class="ret-l fade" data-step="4" x="790" y="52" text-anchor="middle" style="--d:.9s">At the first commission, your <tspan class="hi">$<tspan data-amount="developer">100</tspan></tspan> comes back</text>
-          <g class="fade" data-step="4" style="--d:1.8s"><g><animateMotion dur="7s" repeatCount="indefinite" path="M1380 372 C 1380 40, 200 40, 200 150"/><circle class="rider-glow" r="11" filter="url(#flowcblur)"/><circle class="rider" r="3.5"/></g></g>
-        </svg>
-      </div>
-
-      <!-- phone: the same five stations as a list -->
-      <div class="skin__list">
-        <div class="skin__row" data-step="1" style="--d:0s"><i>01</i><div><span class="skin__t">You · <b data-amount="currency">$</b><b data-amount="developer">100</b></span><span class="skin__c">Your commitment · a temporary advance · it opens the partnership: the ecosystem, a sales team, international exposure, lead generation and its management</span></div></div>
-        <div class="skin__row" data-step="2" style="--d:0s"><i>02</i><div><span class="skin__t">Us · <b data-amount="currency">$</b><b data-amount="bns">100</b></span><span class="skin__c">Our match, our own capital · pure media · Google Ads · Meta · to the platforms, not to us</span></div></div>
-        <div class="skin__row" data-step="3" style="--d:0s"><i>03</i><div><span class="skin__t" data-project-short>[PROJECT NAME]</span><span class="skin__c">Both commitments meet in the development</span></div></div>
-        <div class="skin__row" data-step="3" style="--d:.2s"><i>04</i><div><span class="skin__t accent">Sales</span><span class="skin__c">The goal</span></div></div>
-        <div class="skin__row" data-step="4" style="--d:0s"><i>05</i><div><span class="skin__t">First commission</span><span class="skin__c">Your <b data-amount="currency">$</b><b data-amount="developer">100</b> comes back</span></div></div>
-      </div>
-
-      <div class="flowc__close" data-step="5" style="--d:0s">
+      <div class="flowc__close" data-step="4" style="--d:0s">
         <p class="display display--sm">A temporary advance. <span class="accent">We win when you win.</span></p>
       </div>
       <p class="math__note r" style="--d:.8s">The amounts are an example of the mechanic, not a proposal. Subject to final written agreement, brokerage approval and applicable developer / brokerage terms.</p>
