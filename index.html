@@ -1596,6 +1596,44 @@ body.theme-light .chrome__arrow { border-color: rgba(14,13,11,.3); background: r
   .lg__foot .display--sm { font-size: 17px; }
 }
 
+/* ── Biz & Style: one platform, three divisions ─────────────────────────── */
+.bz { text-align: center; justify-items: center; }
+.bz__logo img { width: clamp(150px, 13vw, 240px); display: block; margin: 0 auto clamp(18px, 3vh, 34px); }
+.bz .display--md { margin-top: clamp(6px, 1vh, 12px); }
+.bz__divs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 28px); width: min(100%, 1180px); margin: clamp(30px, 5.6vh, 64px) auto 0; }
+.bz__d { position: relative; display: grid; justify-items: center; align-content: center; gap: 10px; padding: clamp(26px, 4.4vh, 50px) clamp(14px, 1.6vw, 28px); border: 1px solid var(--line); background: linear-gradient(180deg, rgba(250,246,239,.03), rgba(250,246,239,0)); transition: opacity 1.2s var(--ease), border-color 1.2s var(--ease), background 1.2s var(--ease); }
+.bz__d::before { content: ""; position: absolute; left: 50%; top: -1px; width: 36px; height: 1px; margin-left: -18px; background: var(--fg-mute); transition: width 1.2s var(--ease), margin 1.2s var(--ease), background 1.2s var(--ease); }
+.bz__d i { font-style: normal; font-size: 11.5px; letter-spacing: .34em; color: var(--accent); }
+.bz__n { font-family: var(--serif); font-size: clamp(22px, 2.3vw, 40px); letter-spacing: .24em; margin-right: -.24em; text-transform: uppercase; line-height: 1; }
+.bz__cap { font-size: clamp(9px, .72vw, 11.5px); letter-spacing: .26em; text-transform: uppercase; color: var(--fg-mute); }
+.bz__tag { position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); padding: 4px 12px; background: var(--champagne); color: var(--onyx); font-size: 9px; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; opacity: 0; transition: opacity 1s var(--ease) .3s; }
+.slide.s1 .bz__d:not(.bz__d--core) { opacity: .4; }
+.slide.s1 .bz__d--core { border-color: var(--champagne); background: linear-gradient(180deg, rgba(197,168,112,.14), rgba(197,168,112,.02)); }
+.slide.s1 .bz__d--core::before { width: 100%; margin-left: -50%; background: var(--champagne); }
+.slide.s1 .bz__d--core .bz__n { color: var(--champagne); }
+.slide.s1 .bz__d--core .bz__cap { color: var(--fg); }
+.slide.s1 .bz__tag { opacity: 1; }
+.bz__lede { width: min(100%, 1180px); margin-left: auto; margin-right: auto; margin-top: clamp(28px, 5vh, 58px); padding-top: clamp(20px, 3.4vh, 38px); border-top: 1px solid var(--line); position: relative; }
+.bz__lede::before { content: ""; position: absolute; top: -1px; left: 50%; width: 64px; margin-left: -32px; height: 1px; background: var(--champagne); }
+.bz__lede .accent { color: var(--accent); }
+@media (min-width: 1100px) { .bz__lede { width: min(100%, 1500px); } .bz__lede p { white-space: nowrap; letter-spacing: .04em; } }
+.bz__lede p { font-family: var(--serif); font-size: clamp(15px, 1.35vw, 25px); letter-spacing: .06em; text-transform: uppercase; line-height: 1.3; margin: 0; }
+@media (max-width: 600px) {
+  .bz { text-align: left; justify-items: stretch; }
+  .bz__logo img { width: 120px; margin: 0 0 16px; }
+  .bz .display--md { font-size: 30px; }
+  .bz__divs { grid-template-columns: 1fr; gap: 10px; margin-top: 22px; }
+  .bz__d { grid-template-columns: auto 1fr; justify-items: start; align-items: baseline; column-gap: 14px; row-gap: 4px; padding: 16px 16px; }
+  .bz__d::before { left: 0; top: 0; bottom: 0; width: 1px !important; height: auto; margin: 0 !important; }
+  .bz__n { font-size: 22px; letter-spacing: .18em; }
+  .bz__cap { grid-column: 2; font-size: 9px; letter-spacing: .2em; }
+  .bz__tag { top: 0; left: auto; right: 12px; transform: translateY(-50%); font-size: 8px; padding: 3px 8px; }
+  .bz__lede { margin-top: 22px; padding-top: 16px; }
+  .bz__lede::before { left: 0; margin-left: 0; }
+  .bz__lede p { font-size: 16px; letter-spacing: .04em; display: inline; }
+  .bz__lede p + p::before { content: " "; }
+}
+
 </style>
 </head>
 <body>
@@ -1644,28 +1682,20 @@ body.theme-light .chrome__arrow { border-color: rgba(14,13,11,.3); background: r
   </section>
 
   <!-- ══ 01 · BIZ & STYLE ═════════════════════════════════════════════════ -->
-  <section class="slide" data-section="1" data-name="Who We Are" data-title="Biz & Style">
-    <div class="org">
-      <div class="org__in">
-        <div class="org__logo r scale"><img data-logo="logoBizStyle" alt="BIZ &amp; STYLE"></div>
-        <p class="eyebrow org__sub r">Business Development Platform</p>
-        <div class="org__stem ln ln--v"></div>
-        <div class="org__bar ln ln--c"></div>
-        <div class="org__nodes">
-          <div class="org__node">
-            <div class="org__drop ln ln--v"></div>
-            <div class="org__labelwrap"><span class="org__label r">Commerce</span></div>
-          </div>
-          <div class="org__node">
-            <div class="org__drop ln ln--v"></div>
-            <div class="org__labelwrap"><span class="org__label r">Advisory</span></div>
-          </div>
-          <div class="org__node is-core">
-            <div class="org__drop ln ln--v"></div>
-            <div class="org__labelwrap"><span class="org__ring"></span><span class="org__label r">Luxury</span><span class="org__cap">Real Estate · Lifestyle · Partnerships</span></div>
-          </div>
-        </div>
-        <p class="display display--sm org__lede r" style="--d:1.2s">A Miami-based business development platform <span class="accent">built around the luxury ecosystem,</span> <br>designed to compound growth <span class="accent">and scale globally.</span></p>
+  <section class="slide" data-section="1" data-name="Who We Are" data-title="Biz & Style" data-auto="1200">
+    <div class="slide__inner bz">
+      <div class="bz__logo r"><img data-logo="logoBizStyle" alt="BIZ &amp; STYLE"></div>
+      <p class="eyebrow r" style="--d:.2s">Business development platform</p>
+      <h2 class="display display--md r" style="--d:.35s">One platform. <span class="accent">Three divisions.</span></h2>
+      <!-- the three divisions; step 1 puts the focus on Luxury -->
+      <div class="bz__divs">
+        <div class="bz__d r" style="--d:.6s"><i>01</i><span class="bz__n">Commerce</span></div>
+        <div class="bz__d r" style="--d:.75s"><i>02</i><span class="bz__n">Advisory</span></div>
+        <div class="bz__d bz__d--core r" style="--d:.9s"><i>03</i><span class="bz__n">Luxury</span><span class="bz__cap">Real estate · Lifestyle · Partnerships</span><span class="bz__tag">Our focus</span></div>
+      </div>
+      <div class="bz__lede r" style="--d:1.2s">
+        <p>A Miami-based business development platform <span class="accent">built around the luxury ecosystem,</span></p>
+        <p>designed to compound growth <span class="accent">and scale globally.</span></p>
       </div>
     </div>
     <i data-step="1" hidden></i>
