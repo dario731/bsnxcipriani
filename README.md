@@ -62,9 +62,9 @@ the top of the `<script>` in `index.html`:
 | `event` | optional invitation line on "Next step" |
 | `images`, `priceRange`, `valueProposition`, `whySelected`, `commissionPct`, `exampleUnitPrice`, `contact` | reserved for optional screens not in the current sequence |
 
-The current values are set for EDITION Residences Miami Edgewater (Two Roads Development).
-The rendering behind "Already committed" and "Next step" is `editionEdgewater` in `ASSETS`;
-the project mark is `assets/logos/edition-residences.png`.
+The current values are set for Cipriani Residences Miami, Brickell (Mast Capital).
+The rendering behind "Already committed" and "Next step" is `ciprianiBrickell` in `ASSETS`;
+the project mark is `assets/logos/cipriani-residences.png`.
 
 Two ways to switch developer without editing the deck:
 
@@ -105,4 +105,4 @@ The repository deploys to Netlify straight from GitHub `main` (see `netlify.toml
 the root is the site). Push to `main` and Netlify publishes; the `preview` branch is for work in
 progress. 
 
-Share previews: the `<title>` and the Open Graph tags in the `<head>` name the deck "B&S Luxury × EDITION Residences" and point WhatsApp / iMessage at `assets/photos/share.jpg` (1200×630). The `og:image` URL is absolute and currently assumes `https://bnsxedition.netlify.app`; change it to the final domain once Netlify assigns one.
+Share previews: the `<title>` and the Open Graph tags in the `<head>` name the deck "B&S Luxury × Cipriani Residences" and point WhatsApp / iMessage at `assets/photos/share.jpg` (1200×630). The `og:image` URL is absolute and currently assumes `https://bnsxcipriani.netlify.app`; change it to the final domain once Netlify assigns one.
